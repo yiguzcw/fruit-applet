@@ -12,21 +12,6 @@
   margin-top:10rpx;
   border:1px solid #eee;
 }
-.person-line{
-  width: 6%;
-  height: 4rpx;
-  background: lightgray;
- margin-left:161rpx;
-  margin-top:10rpx;
-}
-.person-line1 {
- width:6%;
-height:4rpx;
-background:lightgray;
-margin-left:474rpx;
-margin-top:4rpx;
-
-}
 .cc-text{
 left:272rpx;
 top:35rpx;
@@ -74,8 +59,9 @@ background-color: #fff;
 /* 水果展示 */
 /*无花果*/
 .wd{
+  width: 100%;
   display:flex; /*弹性布局*/
- flex-wrap: wrap; /*换行*/
+  flex-wrap: wrap; /*换行*/
 }
 .wd-wraper{
   width:48%;  /*商品元素*/

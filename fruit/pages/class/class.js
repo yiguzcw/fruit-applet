@@ -19,29 +19,6 @@ Page({
   onLoad: function (options) {
     //  var clas1 = this.data.clas1;
      var cid = this.data.cid;
-    wx.request({
-      url: 'http://127.0.0.1:3000/class1',
-      method: 'get',
-      success: (res) => {
-        //console.log(res.data.data)
-        this.list1 = res.data.data;
-        //console.log(this.list1);
-        this.setData({
-          list1: res.data.data
-        })
-      }
-    })
-    wx.request({
-      url: 'http://127.0.0.1:3000/listr',
-      method: 'get',
-      success: (res) => {
-        //console.log(res.data.data)
-         this.list3 = res.data.data;
-        this.setData({
-           list3: res.data.data
-         })
-      }
-    })
     
   },
   show:function(e){
@@ -49,17 +26,6 @@ Page({
       list3:''
     })
    var cid=e.target.dataset.id
-    wx.request({
-      url: 'http://127.0.0.1:3000/class?clas1=' + cid,
-      method: 'get',
-      success: (res) => {
-        this.list = res.data.data;
-       // console.log(this.list);
-        this.setData({
-          list: res.data.data
-        })
-      }
-    })
   },
   change:function(e){
     //console.log(e.currentTarget.dataset.key)

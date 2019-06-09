@@ -37,20 +37,6 @@ Page({
         //console.log(res.userInfo)
          //获取用户名
     var name, avatar;
-    wx.request({
-      url: 'http://127.0.0.1:3000/reg?uname=' + name + '&avatar=' + avatar,
-      header: {
-        "Content-Type": "application/x-www-form-urlencoded;charset=utf-8"
-      },
-      method: 'post',
-      data: {
-        name: app.globalData.userInfo.nickName,
-        avatar: app.globalData.userInfo.avatarUrl,
-      },
-      success: (res) => {
-        //console.log(res)
-      }
-    })
      this.self()
       }
     } else {
@@ -85,17 +71,6 @@ Page({
   self: function () {
     var name = app.globalData.userInfo.nickName;
     //console.log(name)
-    wx.request({
-      url: 'http://127.0.0.1:3000/login?uname=' + name,
-      method: 'get',
-      success: (res) => {
-        //console.log(res.data.data[0].price)
-        //console.log(res)
-        this.setData({
-        })
-
-      }
-    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

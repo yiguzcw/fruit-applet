@@ -18,22 +18,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.request({
-      url: 'http://127.0.0.1:3000/sel',
-      method:'get',
-      success:(res)=>{
-        var rows = res.data.data;
-        for(var item of rows){
-          item.ck = false;
-        }
-        this.setData({
-          list: rows
-        })
-      var  list=this.data.list;
-      //console.log(list)
-    
-      }
-    })
   setTimeout(()=>{
     this.show1()
   },100)
@@ -172,31 +156,12 @@ Page({
            return date.getFullYear().toString() + pad2(date.getMonth() + 1) + pad2(date.getDate()) + pad2(date.getHours()) + pad2(date.getMinutes());
          }
         //  console.log(tro)
-        wx.request({
-          url:'http://127.0.0.1:3000/order',
-          header: {
-            "Content-Type": "application/x-www-form-urlencoded;charset=utf-8"
-          },
-          method:'post',
-          data: { did, dname, src, price, count, cprice,tro},
-          success:(res)=>{
-            console.log(res)
-          }
-      
-        })
       
        }
        wx.navigateTo({
          url: '/pages/order/order',
        })
      }
-      wx.request({
-        url: 'http://127.0.0.1:3000/del_order',
-        method: 'get',
-        success: (res) => {
-          console.log(res)
-        }
-      })
       
     }
    

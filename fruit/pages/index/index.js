@@ -3,8 +3,21 @@
 const app = getApp()
 Page({
   data: {
-  list:[],
-  list1:[],
+  hotLists:[
+    {
+      img_url:"../images/hotLists/product1.jpg",
+      sid:"product1",
+      sname:"金枕榴莲",
+      price: "128.88"
+    },
+    {
+      img_url: "../images/hotLists/product2.jpg",
+      sid: "product2",
+      sname: "脐橙",
+      price: "78.88"
+    },
+  ],
+  seasonalLists:[],
   clas:1,
   cla:2,
   zannum: 66,
@@ -17,35 +30,8 @@ Page({
     })
   },
   onLoad: function (options) {
-    var clas=this.data.clas;
-    console.log(clas)
-    var cla = this.data.clas;
-    console.log(cla)
-   wx.request({
-     url:'http://127.0.0.1:3000/list?clas=',
-     method:'get',
-     data:{clas:1},
-     success:(res)=>{
-    //console.log(res.data.data)
-      this.list=res.data.data;
-      //console.log(this.list);
-      this.setData({
-        list:res.data.data
-      })
-     }
-   })
-    wx.request({
-      url: 'http://127.0.0.1:3000/list?clas=',
-      method: 'get',
-      data: { clas: 2 },
-      success:(res) => {
-        this.list1 = res.data.data;
-        this.setData({
-          list1: res.data.data
-        })
-
-      }
-    })
+    debugger
+    console.log(this.data.hotLists);
   },
   detail: function (e) {
    var id=e.target.dataset.id;
