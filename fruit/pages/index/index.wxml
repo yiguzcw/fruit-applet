@@ -2,46 +2,44 @@
 <wxs module="filters" src="../../utils/filters.wxs"></wxs>
 <view class="container1">
   <view class='slider'>
-    <swiper autoplay interval="3500" indicator-dots="{{true}}">
-        <swiper-item>
-            <image src="../images/swiper_bg1.jpg" mode="aspectFill" lazy-load='true'/>
-        </swiper-item> 
-        <swiper-item>
-            <image src="../images/swiper_bg2.jpg" mode="aspectFill" lazy-load='true'/>
+    <swiper
+      indicator-dots="{{indicatorDots}}"
+      autoplay="{{autoplay}}"
+      interval="{{interval}}"
+      duration="{{duration}}"
+    >
+      <block wx:for="{{imgUrls}}">
+        <swiper-item key="{{item.id}}">
+          <image src="{{item.img}}" class="slide-image" width="355" height="200" />
         </swiper-item>
-        <swiper-item>
-            <image src="../images/swiper_bg3.jpg" mode="aspectFill" lazy-load='true'/>
-        </swiper-item>
+      </block>
     </swiper>
   </view>
 
 </view>
-  <view class='cc'>
+<view class='cc'>
   <text class='cc-text'>热门推荐</text>
 </view>
-  <!-- 水果展示 -->
-  <view class='wd'>
-    <view class='wd-wraper'  wx:for='{{hotList}}'>
-      <image src='{{item.img_url}}' bindtap='detail' data-id='{{item.sid}}'></image> 
-        <text class='wd-text'>{{item.sname}}</text>
-        <text class='wd-text' style='color:red'>￥{{filters.toFix(item.price)}}</text>
-    </view>
-  </view>
-
-
-<!-- 精品干果 -->
- <view class='cc'>
-  <text class='cc-text'>时令水果</text>
-  <!-- 干果展示 -->
-  <view class='wd'>
-    <view class='wd-wraper' wx:for='{{list1}}'>
-      <image src='http://127.0.0.1:3000/{{item.img_url}}' bindtap='detail' data-id='{{item.sid}}'></image> 
-        <text class='wd-text'>{{item.sname}}</text>
-        <text class='wd-text' style='color:red'>￥{{filters.toFix(item.price)}}</text>
-    </view>
+<!-- 水果展示 -->
+<view class='hot wd'>
+  <view class='wd-wraper' wx:for='{{hotLists}}' key="{{item.sid}}">
+    <image src='{{item.img_url}}' bindtap='detail' data-id='{{item.sid}}'></image> 
+    <text class='item-name'>{{item.sname}}</text>
+    <text class='item-price' style='color:red'>友情价￥{{item.price}}</text>
   </view>
 </view>
 
+<view class='cc'>
+  <text class='cc-text'>时令水果</text>
+</view>
+<!-- 时令水果 -->
+<view class='hot wd'>
+  <view class='wd-wraper' wx:for='{{seasonalLists}}' key="{{item.sid}}">
+    <image src='{{item.img_url}}' bindtap='detail' data-id='{{item.sid}}'></image> 
+    <text class='item-name'>{{item.sname}}</text>
+    <text class='item-price' style='color:red'>友情价￥{{item.price}}</text>
+  </view>
+</view>
 <view class='ss'>
   <input type='text' placeholder='没看到想吃的？不妨再搜索一下。'></input>
 </view>
